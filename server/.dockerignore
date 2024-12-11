@@ -1,0 +1,30 @@
+# Ignore Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+venv/
+.env/
+
+# Git
+.git
+.gitignore
+
+# Local config files
+*.env
+*.log
+.DS_Store
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# Test files
+coverage/
+*.coverage
+pytest_cache/
+*.pytest_cache
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/

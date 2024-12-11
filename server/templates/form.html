@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Review Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .star-rating {
+            direction: rtl;
+            display: inline-flex;
+        }
+        .star-rating input {
+            display: none;
+        }
+        .star-rating label {
+            font-size: 2rem;
+            color: #ddd;
+            cursor: pointer;
+        }
+        .star-rating input:checked ~ label {
+            color: #f5c518;
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Airline Review Form</h1>
+        <form action="/submit" method="post" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="airline" class="form-label">Airline</label>
+                <select id="airline" name="airline" class="form-select" required>
+                    <option value="">Select an Airline</option>
+                    <option>Singapore Airlines</option>
+                    <option>Qatar Airways</option>
+                    <option>All Nippon Airways</option>
+                    <option>Emirates</option>
+                    <option>Japan Airlines</option>
+                    <option>Turkish Airlines</option>
+                    <option>Air France</option>
+                    <option>Cathay Pacific Airways</option>
+                    <option>EVA Air</option>
+                    <option>Korean Air</option>
+                </select>
+                <div class="invalid-feedback">Please select an airline.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="traveller_type" class="form-label">Type of Traveller</label>
+                <select id="traveller_type" name="traveller_type" class="form-select" required>
+                    <option value="">Select Type</option>
+                    <!-- Replace with dynamic options from your data -->
+                    <option>Business</option>
+                    <option>Leisure</option>
+                </select>
+                <div class="invalid-feedback">Please select the type of traveller.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="month_flown" class="form-label">Month Flown</label>
+                <select id="month_flown" name="month_flown" class="form-select" required>
+                    <option value="">Select a Month</option>
+                  
+                    
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                </select>
+                <div class="invalid-feedback">Please select the month flown.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="class" class="form-label">Class</label>
+                <select id="class" name="class" class="form-select" required>
+                    <option value="">Select Class</option>
+                    <option>Business Class</option>
+                    <option>Economy Class</option>
+                    <option>Premium Economy</option>
+                    <option>First Class</option>
+                </select>
+                <div class="invalid-feedback">Please select the class.</div>
+            </div>
+            <div class="mb-3">
+                <label for="seat_comfort" class="form-label">Staff Service:</label>
+                <div class="star-rating">
+                    <input type="radio" id="seat_comfort_10" name="seat_comfort" value="10" required><label for="seat_comfort_10">&#9733;</label>
+                    <input type="radio" id="seat_comfort_9" name="seat_comfort" value="9"><label for="seat_comfort_9">&#9733;</label>
+                    <input type="radio" id="seat_comfort_8" name="seat_comfort" value="8"><label for="seat_comfort_8">&#9733;</label>
+                    <input type="radio" id="seat_comfort_7" name="seat_comfort" value="7"><label for="seat_comfort_7">&#9733;</label>
+                    <input type="radio" id="seat_comfort_6" name="seat_comfort" value="6"><label for="seat_comfort_6">&#9733;</label>
+                    <input type="radio" id="seat_comfort_5" name="seat_comfort" value="5"><label for="seat_comfort_5">&#9733;</label>
+                    <input type="radio" id="seat_comfort_4" name="seat_comfort" value="4"><label for="seat_comfort_4">&#9733;</label>
+                    <input type="radio" id="seat_comfort_3" name="seat_comfort" value="3"><label for="seat_comfort_3">&#9733;</label>
+                    <input type="radio" id="seat_comfort_2" name="seat_comfort" value="2"><label for="seat_comfort_2">&#9733;</label>
+                    <input type="radio" id="seat_comfort_1" name="seat_comfort" value="1"><label for="seat_comfort_1">&#9733;</label>
+                </div>
+                <div class="invalid-feedback">Please rate the staff service.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="food_beverage" class="form-label">Food & Beverages:</label>
+                <div class="star-rating">
+                    <input type="radio" id="food_beverage_10" name="food_beverage" value="10" required><label for="food_beverage_10">&#9733;</label>
+                    <input type="radio" id="food_beverage_9" name="food_beverage" value="9"><label for="food_beverage_9">&#9733;</label>
+                    <input type="radio" id="food_beverage_8" name="food_beverage" value="8"><label for="food_beverage_8">&#9733;</label>
+                    <input type="radio" id="food_beverage_7" name="food_beverage" value="7"><label for="food_beverage_7">&#9733;</label>
+                    <input type="radio" id="food_beverage_6" name="food_beverage" value="6"><label for="food_beverage_6">&#9733;</label>
+                    <input type="radio" id="food_beverage_5" name="food_beverage" value="5"><label for="food_beverage_5">&#9733;</label>
+                    <input type="radio" id="food_beverage_4" name="food_beverage" value="4"><label for="food_beverage_4">&#9733;</label>
+                    <input type="radio" id="food_beverage_3" name="food_beverage" value="3"><label for="food_beverage_3">&#9733;</label>
+                    <input type="radio" id="food_beverage_2" name="food_beverage" value="2"><label for="food_beverage_2">&#9733;</label>
+                    <input type="radio" id="food_beverage_1" name="food_beverage" value="1"><label for="food_beverage_1">&#9733;</label>
+                </div>
+                <div class="invalid-feedback">Please rate the food & beverages.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="inflight_entretainment" class="form-label">Inflight Entertainment:</label>
+                <div class="star-rating">
+                    <input type="radio" id="inflight_entretainment_10" name="inflight_entretainment" value="10" required><label for="inflight_entretainment_10">&#9733;</label>
+                    <input type="radio" id="inflight_entretainment_9" name="inflight_entretainment" value="9"><label for="inflight_entretainment_9">&#9733;</label>
+                    <input type="radio" id="inflight_entretainment_8" name="inflight_entretainment" value="8"><label for="inflight_entretainment_8">&#9733;</label>
+                    <input type="radio" id="inflight_entretainment_7" name="inflight_entretainment" value="7"><label for="inflight_entretainment_7">&#9733;</label>
+                    <input type="radio" id="inflight_entretainment_6" name="inflight_entretainment" value="6"><label for="inflight_entretainment_6">&#9733;</label>
+                    <input type="radio" id="inflight_entretainment_5" name="inflight_entretainment" value="5"><label for="inflight_entretainment_5">&#9733;</label>
+                    <input type="radio" id="inflight_entretainment_4" name="inflight_entretainment" value="4"><label for="inflight_entretainment_4">&#9733;</label>
+                    <input type="radio" id="inflight_entretainment_3" name="inflight_entretainment" value="3"><label for="inflight_entretainment_3">&#9733;</label>
+                    <input type="radio" id="inflight_entretainment_2" name="inflight_entretainment" value="2"><label for="inflight_entretainment_2">&#9733;</label>
+                    <input type="radio" id="inflight_entretainment_1" name="inflight_entretainment" value="1"><label for="inflight_entretainment_1">&#9733;</label>
+                </div>
+                <div class="invalid-feedback">Please rate the inflight entertainment.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="value_for_money" class="form-label">Value For Money:</label>
+                <div class="star-rating">
+                    <input type="radio" id="value_for_money_10" name="value_for_money" value="10" required><label for="value_for_money_10">&#9733;</label>
+                    <input type="radio" id="value_for_money_9" name="value_for_money" value="9"><label for="value_for_money_9">&#9733;</label>
+                    <input type="radio" id="value_for_money_8" name="value_for_money" value="8"><label for="value_for_money_8">&#9733;</label>
+                    <input type="radio" id="value_for_money_7" name="value_for_money" value="7"><label for="value_for_money_7">&#9733;</label>
+                    <input type="radio" id="value_for_money_6" name="value_for_money" value="6"><label for="value_for_money_6">&#9733;</label>
+                    <input type="radio" id="value_for_money_5" name="value_for_money" value="5"><label for="value_for_money_5">&#9733;</label>
+                    <input type="radio" id="value_for_money_4" name="value_for_money" value="4"><label for="value_for_money_4">&#9733;</label>
+                    <input type="radio" id="value_for_money_3" name="value_for_money" value="3"><label for="value_for_money_3">&#9733;</label>
+                    <input type="radio" id="value_for_money_2" name="value_for_money" value="2"><label for="value_for_money_2">&#9733;</label>
+                    <input type="radio" id="value_for_money_1" name="value_for_money" value="1"><label for="value_for_money_1">&#9733;</label>
+                </div>
+                <div class="invalid-feedback">Please rate the value for money.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="overall_rating" class="form-label">Overall Rating:</label>
+                <div class="star-rating">
+                    <input type="radio" id="overall_rating_10" name="overall_rating" value="10" required><label for="overall_rating_10">&#9733;</label>
+                    <input type="radio" id="overall_rating_9" name="overall_rating" value="9"><label for="overall_rating_9">&#9733;</label>
+                    <input type="radio" id="overall_rating_8" name="overall_rating" value="8"><label for="overall_rating_8">&#9733;</label>
+                    <input type="radio" id="overall_rating_7" name="overall_rating" value="7"><label for="overall_rating_7">&#9733;</label>
+                    <input type="radio" id="overall_rating_6" name="overall_rating" value="6"><label for="overall_rating_6">&#9733;</label>
+                    <input type="radio" id="overall_rating_5" name="overall_rating" value="5"><label for="overall_rating_5">&#9733;</label>
+                    <input type="radio" id="overall_rating_4" name="overall_rating" value="4"><label for="overall_rating_4">&#9733;</label>
+                    <input type="radio" id="overall_rating_3" name="overall_rating" value="3"><label for="overall_rating_3">&#9733;</label>
+                    <input type="radio" id="overall_rating_2" name="overall_rating" value="2"><label for="overall_rating_2">&#9733;</label>
+                    <input type="radio" id="overall_rating_1" name="overall_rating" value="1"><label for="overall_rating_1">&#9733;</label>
+                </div>
+                <div class="invalid-feedback">Please rate the overall rating.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="review" class="form-label">Review</label>
+                <textarea id="review" name="review" rows="4" class="form-control" required></textarea>
+                <div class="invalid-feedback">Please provide your review.</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Bootstrap form validation
+        (() => {
+            'use strict'
+            const forms = document.querySelectorAll('.needs-validation')
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+</body>
+</html>
